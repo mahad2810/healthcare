@@ -1,6 +1,3 @@
-Here’s how your README will look with the tech stack details included:  
-
----
 
 # **AuraMed**  
 
@@ -135,9 +132,3 @@ Contributions are welcome! Feel free to submit issues or pull requests to enhanc
 
 ---
 
-## **License**  
-This project is licensed under the MIT License.  
-
----  
-
-This README ensures clarity, professionalism, and a comprehensive overview of your submission.
