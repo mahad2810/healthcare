@@ -1,0 +1,1767 @@
+[{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee878397"
+  },
+  "name": "Dr.Mahad Iqbal",
+  "specialization": "Cardiologist",
+  "phone_number": "+91-99888-77665",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2025-01-16": {
+      "14:00": 5
+    },
+    "2025-01-31": {
+      "18:00": 6
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Cardiology)",
+      "DM (Cardiology)"
+    ],
+    "experience": "Over 15 years of experience in treating complex cardiac conditions.",
+    "achievements": [
+      "Performed over 500 successful heart surgeries.",
+      "Recipient of the National Medical Excellence Award.",
+      "Published 20+ research papers in international medical journals."
+    ]
+  },
+  "fees": 1000
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839a"
+  },
+  "name": "Dr. Sneha Pillai",
+  "specialization": "Pediatrics",
+  "phone_number": "+91-66554-11223",
+  "hospital": "Manipal Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Orthopedics)"
+    ],
+    "experience": "10 years of expertise in joint replacements and sports injuries.",
+    "achievements": [
+      "Performed over 300 joint replacement surgeries.",
+      "Lead consultant for national sports teams.",
+      "Author of the book 'Modern Orthopedic Techniques'."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839b"
+  },
+  "name": "Dr. Vivek Kumar",
+  "specialization": "General Medicine",
+  "phone_number": "+91-55443-99887",
+  "hospital": "Max Super Speciality Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Medicine)",
+      "DM (Neurology)"
+    ],
+    "experience": "12 years of experience in diagnosing and managing neurological disorders.",
+    "achievements": [
+      "Specialized in treating rare neurodegenerative diseases.",
+      "Awarded the 'Excellence in Neurology' award by the Medical Association.",
+      "Speaker at global neurology conferences."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839f"
+  },
+  "name": "Dr. Anil Reddy",
+  "specialization": "Pediatrics",
+  "phone_number": "+91-88765-11223",
+  "hospital": "CMC Vellore",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Pediatrics)"
+    ],
+    "experience": "8 years of experience in child healthcare and development.",
+    "achievements": [
+      "Founder of a child health awareness program in rural areas.",
+      "Expert in treating childhood allergies and infections.",
+      "Trained in advanced neonatal care."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a2"
+  },
+  "name": "Dr. Shreya Nair",
+  "specialization": "Neurology",
+  "phone_number": "+91-55443-88765",
+  "hospital": "Wockhardt Hospitals",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Dermatology)"
+    ],
+    "experience": "10 years of expertise in skin care and cosmetic treatments.",
+    "achievements": [
+      "Pioneer in introducing laser treatments in the region.",
+      "Consultant dermatologist for multiple beauty clinics.",
+      "Published papers on treating rare skin conditions."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a4"
+  },
+  "name": "Dr. Nisha Kapoor",
+  "specialization": "Pediatrics",
+  "phone_number": "+91-33221-55443",
+  "hospital": "Sahyadri Hospitals",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Oncology)"
+    ],
+    "experience": "15 years specializing in cancer treatment and chemotherapy.",
+    "achievements": [
+      "Lead oncologist in a reputed cancer research center.",
+      "Introduced new radiation techniques in treatment.",
+      "Authored multiple oncology-related books."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a5"
+  },
+  "name": "Dr. Aditya Joshi",
+  "specialization": "General Medicine",
+  "phone_number": "+91-22334-44532",
+  "hospital": "Yashoda Hospitals",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (General Surgery)",
+      "FACS"
+    ],
+    "experience": "20 years of surgical expertise in minimally invasive techniques.",
+    "achievements": [
+      "Performed 2000+ successful laparoscopic surgeries.",
+      "Trained over 50 surgeons globally.",
+      "Recipient of international awards for innovative surgical techniques."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee878399"
+  },
+  "name": "Dr. Ramesh Gupta",
+  "specialization": "Orthopedics",
+  "phone_number": "+91-77654-22334",
+  "hospital": "AIIMS Delhi",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Cardiology)",
+      "DM (Cardiology)"
+    ],
+    "experience": "Over 15 years of experience in treating complex cardiac conditions.",
+    "achievements": [
+      "Performed over 500 successful heart surgeries.",
+      "Recipient of the National Medical Excellence Award.",
+      "Published 20+ research papers in international medical journals."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839c"
+  },
+  "name": "Dr. Aarti Jain",
+  "specialization": "Cardiologist",
+  "phone_number": "+91-44532-11234",
+  "hospital": "Narayana Health",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Orthopedics)"
+    ],
+    "experience": "10 years of expertise in joint replacements and sports injuries.",
+    "achievements": [
+      "Performed over 300 joint replacement surgeries.",
+      "Lead consultant for national sports teams.",
+      "Author of the book 'Modern Orthopedic Techniques'."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839d"
+  },
+  "name": "Dr. Rajesh Mehta",
+  "specialization": "Neurology",
+  "phone_number": "+91-33221-99887",
+  "hospital": "Kokilaben Dhirubhai Ambani Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Medicine)",
+      "DM (Neurology)"
+    ],
+    "experience": "12 years of experience in diagnosing and managing neurological disorders.",
+    "achievements": [
+      "Specialized in treating rare neurodegenerative diseases.",
+      "Awarded the 'Excellence in Neurology' award by the Medical Association.",
+      "Speaker at global neurology conferences."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee878398"
+  },
+  "name": "Dr. Pooja Sharma",
+  "specialization": "Neurology",
+  "phone_number": "+91-88776-55443",
+  "hospital": "Fortis Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Pediatrics)"
+    ],
+    "experience": "8 years of experience in child healthcare and development.",
+    "achievements": [
+      "Founder of a child health awareness program in rural areas.",
+      "Expert in treating childhood allergies and infections.",
+      "Trained in advanced neonatal care."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee87839e"
+  },
+  "name": "Dr. Priya Verma",
+  "specialization": "Orthopedics",
+  "phone_number": "+91-22334-66554",
+  "hospital": "Care Hospitals",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Dermatology)"
+    ],
+    "experience": "10 years of expertise in skin care and cosmetic treatments.",
+    "achievements": [
+      "Pioneer in introducing laser treatments in the region.",
+      "Consultant dermatologist for multiple beauty clinics.",
+      "Published papers on treating rare skin conditions."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a0"
+  },
+  "name": "Dr. Kavita Singh",
+  "specialization": "General Medicine",
+  "phone_number": "+91-77654-22334",
+  "hospital": "Sanjeevani Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Oncology)"
+    ],
+    "experience": "15 years specializing in cancer treatment and chemotherapy.",
+    "achievements": [
+      "Lead oncologist in a reputed cancer research center.",
+      "Introduced new radiation techniques in treatment.",
+      "Authored multiple oncology-related books."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a1"
+  },
+  "name": "Dr. Mohan Desai",
+  "specialization": "Cardiologist",
+  "phone_number": "+91-66554-99887",
+  "hospital": "Ruby Hall Clinic",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (General Surgery)",
+      "FACS"
+    ],
+    "experience": "20 years of surgical expertise in minimally invasive techniques.",
+    "achievements": [
+      "Performed 2000+ successful laparoscopic surgeries.",
+      "Trained over 50 surgeons globally.",
+      "Recipient of international awards for innovative surgical techniques."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "676e6b41f4190e67ee8783a3"
+  },
+  "name": "Dr. Vikas Tiwari",
+  "specialization": "Orthopedics",
+  "phone_number": "+91-44532-77654",
+  "hospital": "Medanta - The Medicity",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 3,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 6,
+      "14:00": 4,
+      "15:30": 3
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Cardiology)",
+      "DM (Cardiology)"
+    ],
+    "experience": "Over 15 years of experience in treating complex cardiac conditions.",
+    "achievements": [
+      "Performed over 500 successful heart surgeries.",
+      "Recipient of the National Medical Excellence Award.",
+      "Published 20+ research papers in international medical journals."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac1416494128d"
+  },
+  "name": "Dr. Sangeeta Verma",
+  "specialization": "Psychiatrist",
+  "phone_number": "+91-98123-45678",
+  "hospital": "Holy Family Hospital",
+  "availability": {
+    "2024-12-27": {
+      "10:00": 5,
+      "12:00": 2,
+      "14:00": 3
+    },
+    "2024-12-28": {
+      "09:30": 4,
+      "11:30": 3
+    },
+    "2024-12-29": {
+      "08:00": 2,
+      "10:30": 3,
+      "12:30": 4
+    },
+    "2024-12-30": {
+      "10:00": 4,
+      "12:00": 2,
+      "14:30": 5
+    },
+    "2024-12-31": {
+      "09:00": 3,
+      "12:30": 4,
+      "16:00": 3
+    },
+    "2025-01-01": {
+      "08:30": 2,
+      "10:00": 3,
+      "13:00": 5
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Psychiatry)"
+    ],
+    "experience": "Over 15 years of experience in treating mental health issues, including anxiety and depression.",
+    "achievements": [
+      "Specialized in cognitive behavioral therapy.",
+      "Published 25+ papers on mental health in national journals."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac14164941287"
+  },
+  "name": "Dr. Priya Singh",
+  "specialization": "Dermatologist",
+  "phone_number": "+91-99999-12345",
+  "hospital": "Max Super Speciality",
+  "availability": {
+    "2024-12-27": {
+      "10:00": 3,
+      "12:00": 4,
+      "14:00": 2
+    },
+    "2024-12-28": {
+      "09:00": 2,
+      "11:30": 5
+    },
+    "2024-12-29": {
+      "08:30": 2,
+      "10:30": 4,
+      "12:30": 3
+    },
+    "2024-12-30": {
+      "11:00": 5,
+      "14:00": 3,
+      "16:00": 4
+    },
+    "2024-12-31": {
+      "10:30": 4,
+      "12:00": 2,
+      "15:30": 3
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Dermatology)"
+    ],
+    "experience": "Over 10 years of experience in treating skin diseases and cosmetic dermatology.",
+    "achievements": [
+      "Specialized in laser treatments and acne scars.",
+      "Recipient of the Best Dermatologist Award in 2020.",
+      "Published 15+ research papers in dermatology journals."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac14164941288"
+  },
+  "name": "Dr. Suresh Kumar",
+  "specialization": "Orthopedic Surgeon",
+  "phone_number": "+91-99887-55666",
+  "hospital": "Fortis Healthcare",
+  "availability": {
+    "2024-12-27": {
+      "08:00": 4,
+      "10:00": 2,
+      "12:00": 3
+    },
+    "2024-12-28": {
+      "09:00": 5,
+      "11:00": 3
+    },
+    "2024-12-29": {
+      "07:30": 4,
+      "10:00": 3,
+      "13:00": 2
+    },
+    "2024-12-30": {
+      "08:00": 5,
+      "10:00": 3,
+      "12:30": 2
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 3,
+      "11:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 4,
+      "10:00": 3,
+      "12:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Orthopedics)"
+    ],
+    "experience": "Over 12 years of experience in orthopedic surgeries and joint replacement.",
+    "achievements": [
+      "Specialized in knee and hip replacement surgeries.",
+      "Recipient of the Best Orthopedic Surgeon Award in 2018.",
+      "Published multiple papers in orthopedic medical journals."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac14164941289"
+  },
+  "name": "Dr. Neha Gupta",
+  "specialization": "Gynecologist",
+  "phone_number": "+91-98877-66554",
+  "hospital": "Cloudnine Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "11:00": 3,
+      "14:00": 4
+    },
+    "2024-12-28": {
+      "10:00": 4,
+      "12:00": 2
+    },
+    "2024-12-29": {
+      "08:30": 3,
+      "10:00": 4,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "11:00": 4,
+      "14:30": 3,
+      "16:00": 2
+    },
+    "2024-12-31": {
+      "09:00": 4,
+      "12:00": 2,
+      "15:00": 3
+    },
+    "2025-01-01": {
+      "10:00": 3,
+      "13:00": 2,
+      "15:00": 4
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Gynecology)",
+      "DNB (Obstetrics)"
+    ],
+    "experience": "Over 8 years of experience in treating women's health issues, especially pregnancy and childbirth.",
+    "achievements": [
+      "Expert in high-risk pregnancy management.",
+      "Recipient of the Best Gynecologist Award in 2021.",
+      "Published 10+ research papers on women's reproductive health."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac1416494128a"
+  },
+  "name": "Dr. Ravi Reddy",
+  "specialization": "Pediatrician",
+  "phone_number": "+91-99555-88888",
+  "hospital": "KIMS Hospital",
+  "availability": {
+    "2024-12-27": {
+      "10:00": 4,
+      "12:00": 3,
+      "14:00": 2
+    },
+    "2024-12-28": {
+      "09:30": 2,
+      "11:00": 3
+    },
+    "2024-12-29": {
+      "08:00": 4,
+      "10:30": 2,
+      "12:00": 3
+    },
+    "2024-12-30": {
+      "09:00": 5,
+      "11:00": 4,
+      "13:00": 3
+    },
+    "2024-12-31": {
+      "10:30": 3,
+      "12:30": 4,
+      "15:00": 2
+    },
+    "2025-01-01": {
+      "09:00": 3,
+      "11:30": 4,
+      "14:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Pediatrics)"
+    ],
+    "experience": "Over 7 years of experience in child healthcare and vaccination.",
+    "achievements": [
+      "Specialized in pediatric cardiology and allergies.",
+      "Published 5+ research papers in pediatric journals."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac1416494128b"
+  },
+  "name": "Dr. Ayesha Khan",
+  "specialization": "ENT Specialist",
+  "phone_number": "+91-98888-44444",
+  "hospital": "Sir Ganga Ram Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 3,
+      "11:00": 2,
+      "14:00": 4
+    },
+    "2024-12-28": {
+      "10:00": 4,
+      "13:00": 3
+    },
+    "2024-12-29": {
+      "08:30": 5,
+      "11:00": 4,
+      "13:30": 3
+    },
+    "2024-12-30": {
+      "10:00": 3,
+      "12:30": 2,
+      "14:00": 4
+    },
+    "2024-12-31": {
+      "09:00": 4,
+      "11:00": 2,
+      "15:00": 3
+    },
+    "2025-01-01": {
+      "08:30": 3,
+      "10:00": 4,
+      "13:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (ENT)"
+    ],
+    "experience": "Over 10 years of experience in treating ear, nose, and throat conditions.",
+    "achievements": [
+      "Specialized in endoscopic sinus surgery.",
+      "Published 10+ papers in ENT research journals."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704cbebd9ac1416494128c"
+  },
+  "name": "Dr. Sanjay Mehra",
+  "specialization": "Urologist",
+  "phone_number": "+91-98676-54321",
+  "hospital": "Manipal Hospital",
+  "availability": {
+    "2024-12-27": {
+      "08:00": 4,
+      "10:00": 3,
+      "12:00": 2
+    },
+    "2024-12-28": {
+      "09:00": 2,
+      "11:30": 4
+    },
+    "2024-12-29": {
+      "07:30": 3,
+      "10:00": 2,
+      "13:00": 4
+    },
+    "2024-12-30": {
+      "08:30": 3,
+      "11:00": 4,
+      "13:30": 2
+    },
+    "2024-12-31": {
+      "09:00": 4,
+      "11:00": 3,
+      "14:00": 2
+    },
+    "2025-01-01": {
+      "08:00": 5,
+      "10:30": 2,
+      "13:00": 3
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Urology)"
+    ],
+    "experience": "Over 12 years of experience in treating urological disorders.",
+    "achievements": [
+      "Specialized in minimally invasive urological surgeries.",
+      "Recipient of the Excellence in Urology Award in 2019."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c396b"
+  },
+  "name": "Dr. Arjun Menon",
+  "specialization": "Cardiologist",
+  "phone_number": "+91-99888-77665",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 5,
+      "10:00": 2,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "14:00": 4,
+      "15:00": 6
+    },
+    "2024-12-29": {
+      "08:00": 1,
+      "09:30": 3,
+      "11:00": 2,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "10:00": 2,
+      "12:00": 5,
+      "14:00": 3,
+      "15:30": 1
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "09:00": 2,
+      "10:30": 2,
+      "13:00": 6,
+      "16:00": 4
+    },
+    "2025-01-01": {
+      "08:00": 3,
+      "11:00": 4,
+      "14:00": 2
+    },
+    "2025-01-17": {
+      "17:00": 8
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Cardiology)",
+      "DM (Cardiology)"
+    ],
+    "experience": "Over 15 years of experience in treating complex cardiac conditions.",
+    "achievements": [
+      "Performed over 500 successful heart surgeries.",
+      "Recipient of the National Medical Excellence Award.",
+      "Published 20+ research papers in international medical journals."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c396f"
+  },
+  "name": "Dr. Vikram Singh",
+  "specialization": "General Medicine",
+  "phone_number": "+91-98765-44321",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "08:00": 3,
+      "09:30": 4,
+      "11:00": 2
+    },
+    "2024-12-28": {
+      "10:00": 4,
+      "12:00": 3
+    },
+    "2024-12-29": {
+      "13:00": 5,
+      "14:30": 2
+    },
+    "2024-12-30": {
+      "09:00": 4,
+      "11:30": 2
+    },
+    "2024-12-31": {
+      "08:30": 3,
+      "10:30": 5,
+      "14:00": 4
+    },
+    "2025-01-01": {
+      "12:30": 3,
+      "15:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (General Medicine)"
+    ],
+    "experience": "More than 18 years of experience in general medicine.",
+    "achievements": [
+      "Expert in managing chronic diseases.",
+      "Published 10+ articles in medical journals.",
+      "Awarded Best General Medicine Specialist in 2019."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c3974"
+  },
+  "name": "Dr. Amit Bhatia",
+  "specialization": "General Medicine",
+  "phone_number": "+91-99123-23456",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "08:30": 3,
+      "10:00": 2,
+      "12:30": 5
+    },
+    "2024-12-28": {
+      "09:00": 4,
+      "11:00": 3
+    },
+    "2024-12-29": {
+      "13:00": 4,
+      "14:00": 2
+    },
+    "2024-12-30": {
+      "10:30": 4,
+      "13:00": 3
+    },
+    "2024-12-31": {
+      "08:00": 2,
+      "10:30": 5
+    },
+    "2025-01-01": {
+      "12:00": 3,
+      "14:00": 4
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (General Medicine)"
+    ],
+    "experience": "Over 10 years of experience in diagnosing and treating medical conditions.",
+    "achievements": [
+      "Expert in managing diabetes and hypertension.",
+      "Published several papers on lifestyle diseases."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c396d"
+  },
+  "name": "Dr. Anil Kumar",
+  "specialization": "Orthopedics",
+  "phone_number": "+91-98888-23344",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "10:00": 3,
+      "11:30": 2,
+      "14:00": 5
+    },
+    "2024-12-28": {
+      "09:00": 4,
+      "10:30": 3
+    },
+    "2024-12-29": {
+      "08:00": 5,
+      "10:00": 2,
+      "11:30": 4
+    },
+    "2024-12-30": {
+      "14:30": 3,
+      "16:00": 2
+    },
+    "2024-12-31": {
+      "07:00": 5,
+      "09:30": 2,
+      "11:30": 4
+    },
+    "2025-01-01": {
+      "08:30": 4,
+      "10:00": 5
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Orthopedics)",
+      "DNB (Orthopedics)"
+    ],
+    "experience": "Over 20 years of experience in treating bone and joint conditions.",
+    "achievements": [
+      "Specialist in knee and hip replacement surgeries.",
+      "Recipient of the National Orthopedic Award in 2021.",
+      "Authored 30+ research articles on joint disorders."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c396e"
+  },
+  "name": "Dr. Neelam Gupta",
+  "specialization": "Pediatrics",
+  "phone_number": "+91-99999-22444",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:00": 3,
+      "11:00": 5,
+      "13:00": 2
+    },
+    "2024-12-28": {
+      "08:30": 4,
+      "10:00": 3
+    },
+    "2024-12-29": {
+      "09:30": 2,
+      "11:00": 3
+    },
+    "2024-12-30": {
+      "08:00": 4,
+      "09:30": 3
+    },
+    "2024-12-31": {
+      "11:30": 4,
+      "14:00": 2
+    },
+    "2025-01-01": {
+      "09:00": 3,
+      "12:00": 2
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Pediatrics)",
+      "DNB (Pediatrics)"
+    ],
+    "experience": "Over 10 years of experience in treating children and infants.",
+    "achievements": [
+      "Has treated over 10,000 pediatric patients.",
+      "Winner of the Best Pediatrician Award in 2020.",
+      "Published numerous papers on child health care."
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c3971"
+  },
+  "name": "Dr. Meera Patel",
+  "specialization": "Neurology",
+  "phone_number": "+91-98675-33221",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "10:30": 4,
+      "11:30": 3,
+      "14:00": 2
+    },
+    "2024-12-28": {
+      "09:00": 5,
+      "11:00": 4
+    },
+    "2024-12-29": {
+      "10:00": 3,
+      "13:00": 5
+    },
+    "2024-12-30": {
+      "09:00": 3,
+      "12:30": 4
+    },
+    "2024-12-31": {
+      "08:00": 4,
+      "14:00": 5
+    },
+    "2025-01-01": {
+      "10:00": 3,
+      "12:30": 4
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Neurology)",
+      "DM (Neurology)"
+    ],
+    "experience": "More than 10 years of experience in neurological care.",
+    "achievements": [
+      "Specialist in epilepsy and stroke management.",
+      "Recipient of the Award for Excellence in Neurology."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c3972"
+  },
+  "name": "Dr. Akash Verma",
+  "specialization": "Orthopedics",
+  "phone_number": "+91-99222-11234",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "10:00": 2,
+      "11:30": 3,
+      "14:00": 4
+    },
+    "2024-12-28": {
+      "09:00": 3,
+      "10:30": 4
+    },
+    "2024-12-29": {
+      "08:00": 5,
+      "09:30": 2
+    },
+    "2024-12-30": {
+      "14:00": 3,
+      "15:00": 4
+    },
+    "2024-12-31": {
+      "07:30": 5,
+      "10:00": 2
+    },
+    "2025-01-01": {
+      "09:00": 4,
+      "11:00": 3
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MS (Orthopedics)",
+      "DNB (Orthopedics)"
+    ],
+    "experience": "Over 15 years of experience in orthopedic surgery.",
+    "achievements": [
+      "Specialized in shoulder and spine surgery.",
+      "Awarded Best Orthopedic Surgeon in 2021."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c3970"
+  },
+  "name": "Dr. Sunil Raj",
+  "specialization": "Cardiologist",
+  "phone_number": "+91-99888-55444",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "09:30": 3,
+      "11:00": 5,
+      "13:30": 2
+    },
+    "2024-12-28": {
+      "10:00": 2,
+      "14:00": 4
+    },
+    "2024-12-29": {
+      "08:00": 4,
+      "09:30": 2
+    },
+    "2024-12-30": {
+      "10:00": 3,
+      "12:00": 2
+    },
+    "2024-12-31": {
+      "09:00": 3,
+      "13:00": 5
+    },
+    "2025-01-01": {
+      "10:00": 2,
+      "12:30": 3
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Cardiology)",
+      "DM (Cardiology)"
+    ],
+    "experience": "Over 12 years of experience in the field of cardiology.",
+    "achievements": [
+      "Performed over 300 heart surgeries.",
+      "Published research papers on cardiovascular diseases."
+    ]
+  },
+  "fees": 1100
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c3973"
+  },
+  "name": "Dr. Renu Joshi",
+  "specialization": "Pediatrics",
+  "phone_number": "+91-98123-33456",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "08:00": 2,
+      "09:30": 4
+    },
+    "2024-12-28": {
+      "10:00": 3,
+      "11:00": 5
+    },
+    "2024-12-29": {
+      "09:30": 1,
+      "13:00": 3
+    },
+    "2024-12-30": {
+      "10:30": 4,
+      "12:00": 5
+    },
+    "2024-12-31": {
+      "08:00": 3,
+      "14:00": 2
+    },
+    "2025-01-01": {
+      "09:00": 2,
+      "12:30": 3
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Pediatrics)",
+      "DNB (Pediatrics)"
+    ],
+    "experience": "12+ years of experience in pediatric care.",
+    "achievements": [
+      "Has treated over 15,000 children.",
+      "Recipient of the Pediatric Excellence Award."
+    ]
+  },
+  "fees": 800
+},
+{
+  "_id": {
+    "$oid": "67704d67286d7a1bc77c396c"
+  },
+  "name": "Dr. Priya Sharma",
+  "specialization": "Neurology",
+  "phone_number": "+91-99999-11223",
+  "hospital": "Apollo Hospital",
+  "availability": {
+    "2024-12-27": {
+      "08:30": 4,
+      "09:30": 3,
+      "10:30": 5
+    },
+    "2024-12-28": {
+      "11:00": 4,
+      "14:00": 2
+    },
+    "2024-12-29": {
+      "10:00": 3,
+      "12:30": 2,
+      "14:00": 4
+    },
+    "2024-12-30": {
+      "08:00": 3,
+      "09:30": 5,
+      "11:00": 2
+    },
+    "2024-12-31": {
+      "10:00": 4,
+      "13:30": 4,
+      "15:00": 3
+    },
+    "2025-01-01": {
+      "09:00": 2,
+      "12:00": 3,
+      "14:30": 4
+    }
+  },
+  "description": {
+    "degrees": [
+      "MBBS",
+      "MD (Neurology)",
+      "DM (Neurology)"
+    ],
+    "experience": "More than 12 years of experience in treating neurological disorders.",
+    "achievements": [
+      "Leader in research on neurodegenerative diseases.",
+      "Awarded the Best Neurologist of the Year in 2022.",
+      "Published 15+ articles in leading neurology journals."
+    ]
+  },
+  "fees": 900
+},
+{
+  "_id": {
+    "$oid": "6779470a00081cff8f4be8c5"
+  },
+  "name": "Maithili Kumar",
+  "specialization": "Cardiologist",
+  "phone_number": "8582892588",
+  "hospital": "Apollo Hospital",
+  "degrees": [
+    "MBBS",
+    "MS"
+  ],
+  "experience": "20+ yrs",
+  "achievements": [
+    "Hi",
+    "I love you"
+  ],
+  "availability": {
+    "2025-01-22": [
+      "08:00"
+    ],
+    "2025-01-10": [
+      "08:00"
+    ]
+  },
+  "fees": 1200
+},
+{
+  "_id": {
+    "$oid": "677947b100081cff8f4be8c6"
+  },
+  "name": "Dr .Maithili Kumar",
+  "specialization": "Cardiologist",
+  "phone_number": "8582892588",
+  "hospital": "Apollo Hospital",
+  "degrees": [
+    "MBBS",
+    "MS"
+  ],
+  "experience": "20+ yrs",
+  "achievements": [
+    "Hi",
+    "I love you"
+  ],
+  "availability": {
+    "2025-01-15": [
+      "08:00"
+    ],
+    "2025-01-16": [
+      "08:00"
+    ]
+  },
+  "fees": 900
+}]
