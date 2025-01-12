@@ -51,6 +51,7 @@
         .container {
             max-width: 400px;
             width: 90%;
+            height: 70vh; /* Set a height to make the container scrollable */
             background: rgba(255, 255, 255, 0.8);
             backdrop-filter: blur(10px);
             padding: 30px;
@@ -60,6 +61,7 @@
             position: relative;
             z-index: 10;
             margin-top: 80px; /* Space the content from the header */
+            overflow-y: auto; /* Enable vertical scrolling */
         }
         h1 {
             font-size: 2rem;

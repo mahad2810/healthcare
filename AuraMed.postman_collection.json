@@ -106,7 +106,7 @@
 						},
 						{
 							"key": "email",
-							"value": "mahadiqbal70@gmail.com",
+							"value": "mahad.iqbal.aiml27@heritageit.edu.in",
 							"type": "text"
 						},
 						{
@@ -259,30 +259,6 @@
 			"response": []
 		},
 		{
-			"name": "AdjustAppoinment",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"mahadiqbal70@gmail.com\",\r\n  \"oldSlot\": \"2025-01-31T18:00\",\r\n  \"newSlot\": \"2025-01-16T14:00\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:5000/dashboard/adjustAppointment"
-			},
-			"response": []
-		},
-		{
 			"name": "GetUserTests",
 			"request": {
 				"method": "GET",
@@ -331,30 +307,6 @@
 						}
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "RescheduleTest",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"email\": \"mahadiqbal70@gmail.com\",\r\n    \"test_slot_code\": \"R3eAWR\",\r\n    \"test_category\":\"Blood Tests\",\r\n    \"test_type\":\"Liver Function Test (LFT)\",\r\n    \"oldSlot\": \"2024-12-27T09:00\",\r\n    \"newDate\": \"2024-12-27\",\r\n    \"newTime\": \"10:00\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:5000/dashboard/rescheduleTest"
 			},
 			"response": []
 		},
