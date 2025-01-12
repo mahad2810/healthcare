@@ -57,7 +57,7 @@ def register_hospital():
     })
 
     # Return success message after registration
-    return jsonify({"success": True, "message": "Registration successful!"}), 200
+    return jsonify({"success": True, "message": "Registration successful!You can Login now."}), 200
 
 
 
@@ -255,11 +255,15 @@ def setup_upload_folder():
 
 @hospital_bp.route('/get_appointments', methods=['GET'])
 def get_appointments():
+    # Fetch the logged-in hospital's name from the session
+    hospital_name = session.get('hospital_name')
+    if not hospital_name:
+        return jsonify({"success": False, "message": "Not logged in!"}), 401
+
     # Use the 'mongo' object to access the 'appointments' collection
     appointments_collection = current_app.mongo.db.appointments
-    appointments = list(appointments_collection.find({}, {'_id': 0}))
+    appointments = list(appointments_collection.find({"doctor_hospital": hospital_name}, {'_id': 0}))
     return jsonify(appointments)
-
 
 @hospital_bp.route('/update_status', methods=['POST'])
 def update_status():
@@ -350,11 +354,17 @@ def upload_prescription():
 
 @hospital_bp.route('/get_tests', methods=['GET'], endpoint='hospital_get_tests')
 def get_tests():
-    """Fetch all tests from the database and return them as JSON."""
-    tests = list(current_app.mongo.db.tests.find())
+    """Fetch all tests from the database for the logged-in hospital and return them as JSON."""
+    hospital_name = session.get('hospital_name')
+    if not hospital_name:
+        return jsonify({"success": False, "message": "Not logged in!"}), 401
+
+    tests = list(current_app.mongo.db.tests.find({"hospital_name": hospital_name}))
     for test in tests:
         test['_id'] = str(test['_id'])  # Convert ObjectId to string
     return jsonify(tests)
+
+
 
 @hospital_bp.route('/upload_report', methods=['POST'], endpoint='hospital_upload_report')
 def upload_report():
@@ -449,9 +459,13 @@ def update_status():
 
 @hospital_bp.route('/bed_availability', methods=['GET'])
 def get_bed_availability():
-    """Fetch the bed availability from the database."""
+    """Fetch the bed availability from the database for the logged-in hospital."""
+    hospital_name = session.get('hospital_name')
+    if not hospital_name:
+        return jsonify({"success": False, "message": "Not logged in!"}), 401
+
     hospitals_collection = current_app.mongo.db.hospitals
-    hospital_data = hospitals_collection.find_one()
+    hospital_data = hospitals_collection.find_one({"name": hospital_name})
 
     if not hospital_data or 'bed_availability' not in hospital_data:
         return jsonify([])
@@ -511,9 +525,13 @@ def add_doctor():
 
 @hospital_bp.route('/get_test_slots', methods=['GET'])
 def get_test_slots():
+    hospital_name = session.get('hospital_name')
+    if not hospital_name:
+        return jsonify({"success": False, "message": "Not logged in!"}), 401
+
     try:
         db = current_app.mongo.db
-        hospital_data = db.hospitals.find_one()
+        hospital_data = db.hospitals.find_one({"name": hospital_name})
         if not hospital_data or "test_availability" not in hospital_data:
             return jsonify({}), 200
 
