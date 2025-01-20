@@ -3,7 +3,8 @@
 		"_postman_id": "355eb34a-02c9-4aeb-b51b-ac1175103a34",
 		"name": "AuraMed",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
-		"_exporter_id": "40647141"
+		"_exporter_id": "40647141",
+		"_collection_link": "https://auramed-351316.postman.co/workspace/New-Team-Workspace~10702ae5-fd3b-493b-b1c1-ec1e4e6c43eb/collection/40647141-355eb34a-02c9-4aeb-b51b-ac1175103a34?action=share&source=collection_link&creator=40647141"
 	},
 	"item": [
 		{
@@ -610,30 +611,6 @@
 						}
 					]
 				}
-			},
-			"response": []
-		},
-		{
-			"name": "RescheduleTest",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n  \"email\": \"mahadiqbal70gmail.com\",\r\n  \"oldSlot\": \"aRTjnW\",\r\n  \"newDate\": \"2024-12-28\",\r\n  \"newTime\": \"10:00\"\r\n}\r\n",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": "http://localhost:5000/dashboard/rescheduleTest"
 			},
 			"response": []
 		}
