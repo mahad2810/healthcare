@@ -2102,7 +2102,7 @@
     <!-- Reschedule Modal -->
     <div id="reschedule-modal" class="modal">
       <div class="modal-content">
-        <button class="close" onclick="closeModal('reschedule-modal')">
+        <button class="close" onclick="hideModal('reschedule-modal')">
           &times;
         </button>
         <h2><i class="fas fa-calendar-edit"></i> Reschedule Test</h2>
@@ -3110,8 +3110,20 @@
 
             if (newDate && newTime && userEmail) {
               try {
+
+                // Debug statement to log the data being sent
+      const requestData = {
+        email: userEmail,
+        oldSlot: testSlotCode,
+        newDate,
+        newTime,
+      };
+      console.log("Data sent to backend for rescheduling:", requestData);
+
+
+
                 const response = await fetch(
-                  "http://localhost:5000/dashboard/rescheduleTest",
+                  "/dashboard/rescheduleTest",
                   {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },

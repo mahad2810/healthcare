@@ -67,8 +67,8 @@ from werkzeug.security import check_password_hash
 @hospital_bp.route('/login-hospital', methods=['POST'])
 def login_hospital():
     data = request.json
-    email = data.get('email')
-    password = data.get('password')
+    email = data.get('email', '').strip().lower()
+    password = data.get('password', '').strip()
 
     if not all([email, password]):
         return jsonify({"success": False, "message": "All fields are required!"}), 400
@@ -76,15 +76,27 @@ def login_hospital():
     # Access the MongoDB instance from the app context
     hospitals_collection = current_app.mongo.db.hospitals
 
-    hospital = hospitals_collection.find_one({"email": email})
-    if not hospital or not check_password_hash(hospital['password'], password):
-        return jsonify({"success": False, "message": "Invalid credentials!"}), 401
+    try:
+        hospital = hospitals_collection.find_one({"email": email})
 
-    # Login is successful, set the email in session
-    session['hospital_email'] = email
-    session['hospital_name'] = hospital.get("name")
+        if not hospital:
+            return jsonify({"success": False, "message": "Email not registered!"}), 401
 
-    return jsonify({"success": True, "message": "Login successful!"}), 200
+        # Check if 'password' exists in the document
+        if 'password' not in hospital:
+            return jsonify({"success": False, "message": "Password field is missing in the database!"}), 500
+
+        if not check_password_hash(hospital['password'], password):
+            return jsonify({"success": False, "message": "Incorrect password!"}), 401
+
+        # Login is successful, set the email and name in the session
+        session['hospital_email'] = email
+        session['hospital_name'] = hospital.get("name")
+
+        return jsonify({"success": True, "message": "Login successful!"}), 200
+    except Exception as e:
+        current_app.logger.error(f"Error during login: {str(e)}")
+        return jsonify({"success": False, "message": "Internal server error!"}), 500
 
 
 @hospital_bp.route('/get-hospital-details', methods=['GET'])
@@ -279,6 +291,30 @@ def update_status():
     return jsonify({'success': True})
 
 
+
+def send_email(to_email, subject, body):
+    try:
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587
+        sender_email = "auramed1628@gmail.com"  # Replace with your email
+        sender_password = "kxmg wngq ksyp pzss"  # Replace with your app-specific password
+
+        message = MIMEMultipart()
+        message["From"] = sender_email
+        message["To"] = to_email
+        message["Subject"] = subject
+        message.attach(MIMEText(body, "plain"))
+
+        with smtplib.SMTP(smtp_server, smtp_port) as server:
+            server.starttls()
+            server.login(sender_email, sender_password)
+            server.sendmail(sender_email, to_email, message.as_string())
+        return True
+    except Exception as e:
+        print(f"Error sending email: {e}")
+        return False
+
+
 @hospital_bp.route('/upload_prescription', methods=['POST'])
 def upload_prescription():
     appointment_id = request.form.get('appointment_id')
@@ -287,67 +323,66 @@ def upload_prescription():
     if not appointment_id or not file:
         return jsonify({'success': False, 'error': 'Appointment ID and file are required'}), 400
 
-    # Save file to the configured upload folder
     upload_folder = current_app.config['HOSPITAL_UPLOAD_FOLDER']
     filename = file.filename
     file_path = os.path.join(upload_folder, filename)
     file.save(file_path)
 
-    # Convert the absolute file path to a relative path for serving via static
     relative_file_path = os.path.join('static', 'uploads', filename).replace("\\", "/")
-
-    # Access collections via 'mongo'
     appointments_collection = current_app.mongo.db.appointments
     uploads_collection = current_app.mongo.db.uploads
 
-    # Fetch patient email and hospital name using appointment_id
     appointment = appointments_collection.find_one({'appointment_id': appointment_id})
-    print(appointment)
     if not appointment:
         return jsonify({'success': False, 'error': 'Invalid appointment ID'}), 400
 
-    # Safely retrieve fields from the document
     patient_email = appointment.get('patient_email')
-    hospital_name = appointment.get('doctor_hospital', 'Unknown')  # Default if hospital_name is missing
-    print(hospital_name)
-    doctor_name = appointment.get('doctor_name', 'Unknown')  # Default for doctor_name
+    hospital_name = appointment.get('doctor_hospital', 'Unknown')
+    doctor_name = appointment.get('doctor_name', 'Unknown')
 
-    # Check if user already exists in the uploads collection
-    existing_user = uploads_collection.find_one({'email': patient_email})
     new_prescription = {
         'filename': filename,
         'uploaded_at': datetime.utcnow(),
         'file_path': relative_file_path
     }
 
-    if existing_user:
-        # Append to the existing list of prescriptions
+    if uploads_collection.find_one({'email': patient_email}):
         uploads_collection.update_one(
             {'email': patient_email},
             {'$push': {'prescription': new_prescription}}
         )
     else:
-        # Create a new document for the user
         uploads_collection.insert_one({
             'email': patient_email,
             'prescription': [new_prescription]
         })
 
-    # Update the appointments collection with the relative file path
     appointments_collection.update_one(
         {'appointment_id': appointment_id},
         {'$set': {'prescription': relative_file_path}}
     )
 
-    # Add a message to the reminders field in the users collection
-    users_collection = current_app.mongo.db.users
     reminder_message = f"Prescription uploaded for appointment at {hospital_name} with {doctor_name}."
+    users_collection = current_app.mongo.db.users
     users_collection.update_one(
         {'email': patient_email},
         {'$push': {'reminders': reminder_message}}
     )
 
-    return jsonify({'success': True, 'message': 'Prescription uploaded and saved successfully'})
+    # Send email notification
+    subject = "Prescription Uploaded Successfully"
+    body = (
+        f"Dear Patient,\n\n"
+        f"Your prescription for the appointment at {hospital_name} with Dr. {doctor_name} has been successfully uploaded.\n\n"
+        f"File Name: {filename}\n"
+        f"Access it from your portal.\n\n"
+        f"Best Regards,\nHospital Team"
+    )
+    email_status = send_email(patient_email, subject, body)
+    if not email_status:
+        return jsonify({'success': True, 'message': 'Prescription uploaded but email notification failed'}), 200
+
+    return jsonify({'success': True, 'message': 'Prescription uploaded and email notification sent successfully'}), 200
 
 
 
@@ -376,34 +411,19 @@ def upload_report():
     if not file:
         return jsonify({'error': 'No file provided'}), 400
 
-    # Secure the filename and define the save path
     filename = secure_filename(file.filename)
     save_path = os.path.join(current_app.root_path, 'static/uploads', filename)
     os.makedirs(os.path.dirname(save_path), exist_ok=True)
     file.save(save_path)
 
-    # Fetch test details
     test = current_app.mongo.db.tests.find_one({'test_slot_code': test_slot_code})
     if not test:
         return jsonify({'error': 'Test not found'}), 404
 
-    # Extracting fields from the test document
-    patient_name = test.get('patient_name', 'Unknown')
     patient_email = test.get('patient_email', 'Unknown')
-    patient_phone = test.get('patient_phone', 'Unknown')
     hospital_name = test.get('hospital_name', 'Unknown')
-    test_category = test.get('test_category', 'Unknown')
     test_type = test.get('test_type', 'Unknown')
-    test_date = test.get('test_date', 'Unknown')
-    test_time = test.get('test_time', 'Unknown')
 
-    # Format the date and time for the reminder
-    try:
-        formatted_date_time = datetime.strptime(f"{test_date} {test_time}", "%Y-%m-%d %H:%M").strftime("%d %b %Y at %I:%M %p")
-    except ValueError:
-        formatted_date_time = f"{test_date} {test_time}"
-
-    # Update the uploads collection
     current_app.mongo.db.uploads.update_one(
         {'email': patient_email},
         {'$push': {'report': {
@@ -414,7 +434,6 @@ def upload_report():
         upsert=True
     )
 
-    # Update the test record with the report path and status
     current_app.mongo.db.tests.update_one(
         {'test_slot_code': test_slot_code},
         {'$set': {
@@ -423,18 +442,28 @@ def upload_report():
         }}
     )
 
-    # Add a reminder to the user's document
-    reminder_message = (
-        f"Your report '{filename}' for the test '{test_type}' in the category '{test_category}' has been successfully uploaded. "
-        f"Test Details: Hospital - {hospital_name}, Date & Time - {formatted_date_time}."
-    )
+    reminder_message = f"Your report '{filename}' for the test '{test_type}' has been successfully uploaded."
     users_collection = current_app.mongo.db.users
     users_collection.update_one(
         {'email': patient_email},
         {'$push': {'reminders': reminder_message}}
     )
 
-    return jsonify({'message': 'Report uploaded successfully', 'filename': filename, 'file_path': f"/static/uploads/{filename}"}), 200
+    # Send email notification
+    subject = "Test Report Uploaded Successfully"
+    body = (
+        f"Dear Patient,\n\n"
+        f"Your report for the test '{test_type}' at {hospital_name} has been successfully uploaded.\n\n"
+        f"File Name: {filename}\n"
+        f"Access it from your portal.\n\n"
+        f"Best Regards,\nHospital Team"
+    )
+    email_status = send_email(patient_email, subject, body)
+    if not email_status:
+        return jsonify({'message': 'Report uploaded but email notification failed', 'filename': filename}), 200
+
+    return jsonify({'message': 'Report uploaded and email notification sent successfully', 'filename': filename}), 200
+
 
 
 

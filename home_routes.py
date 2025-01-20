@@ -92,7 +92,7 @@ def get_hospitals():
         hospitals_collection = current_app.mongo.db.hospitals
         hospitals = hospitals_collection.find()
 
-        max_distance = 100  # Define the maximum distance (in km)
+        max_distance = 500  # Define the maximum distance (in km)
         nearest_hospitals = []
 
         for hospital in hospitals:
