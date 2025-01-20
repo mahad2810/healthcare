@@ -1,134 +1,121 @@
 
-# **AuraMed**  
+# AuraMed
 
-AuraMed is a comprehensive healthcare management platform designed to simplify hospital and healthcare-related services. From booking appointments and managing test slots to checking bed availability and using an AI-powered symptom checker, AuraMed ensures a seamless experience for users while providing robust tools for hospitals.  
-
----
-
-## **Features**  
-
-### **User Dashboard**  
-1. **Nearby Hospital Locator**: View a list of nearby hospitals or see them on a map with routes.  
-2. **Appointment and Test Booking**: Book, cancel, or adjust appointments and test slots.  
-3. **Symptom Checker**: Predict diseases based on symptoms and get recommended doctors.  
-4. **Bed Availability**: Check bed availability in nearby hospitals and request beds via email.  
-5. **Health Records Management**: Upload and access past prescriptions and reports.  
-6. **Health Data Tracker**: Track metrics like sugar levels, blood pressure, weight, and periods, with reminders for updates.  
-7. **Reminders**: Get notified about upcoming appointments, tests, and health data updates.  
-8. **AuraBot**: A chatbot assistant for booking, cancellations, checking availability, and other queries.  
-
-### **Hospital Dashboard**  
-1. **Manage Availability**: Update doctor availability, test slots, and bed status.  
-2. **Handle Bookings**: Mark appointments and tests as done and upload reports or prescriptions.  
-3. **Add New Services**: Seamlessly add new doctors, tests, or beds to the system.  
+**Your One-Stop Solution for All Hospital and Healthcare Needs**
 
 ---
 
-## **Tech Stack**  
-
-### **Backend**  
-- **Flask**: Lightweight Python framework for routing, templates, and business logic.  
-- **Flask Extensions**:  
-  - Flask-CORS: Handles Cross-Origin Resource Sharing.  
-  - Flask-PyMongo: Simplifies MongoDB interactions.  
-  - Werkzeug: Secure uploads and password hashing.  
-- **MongoDB**: NoSQL database managed through MongoDB Atlas.  
-- **Authentication**: Google OAuth2 for secure user authentication.  
-- **Email Services**: SMTP for sending emails for confirmations, reminders, and bed requests.  
-- **Scheduler**: APScheduler for handling background tasks and notifications.  
-
-### **Frontend**  
-- **HTML/CSS**: Templates and styling for user interfaces.  
-- **Flask Templates**: For server-side rendering of web pages.  
-
-### **Data Processing and Machine Learning**  
-- **Pandas & NumPy**: Data manipulation and numerical computation.  
-- **Scikit-learn**: Implements machine learning models:  
-  - Random Forest Classifier  
-  - Naive Bayes  
-  - Support Vector Classifier (SVC)  
-- **Statistics**: Used for disease prediction and analysis.  
-
-### **APIs and Geolocation**  
-- **Google Maps API**: Geocoding and distance calculations.  
-- **Geopy**: Location-based distance measurements.  
-
-### **File Handling**  
-- **Secure Uploads**: Handles user-uploaded files like prescriptions and reports.  
-
-### **Blueprints**  
-- Modular app structure with specific modules for dashboards, routes, and search functionalities.  
-
-### **Other Technologies**  
-- **BSON**: For handling MongoDB ObjectIds.  
-- **Random/String Generation**: For secure IDs and tokens.  
+## **Overview**
+AuraMed is designed to simplify hospital visits and enhance healthcare services. It allows users to book, cancel, or adjust appointments at nearby hospitals, select the most suitable doctors based on fees and availability, and even book test slots at their convenience. Users can also check bed availability at hospitals and request beds by sending an email. If unsure about symptoms, users can utilize the symptom checker to predict potential diseases and get doctor recommendations. Health records can be uploaded and tracked, including prescriptions, reports, and health data such as blood pressure, sugar levels, and period tracking for females. AuraMed also provides a map of nearby hospitals with routes, along with the AuraBot chatbot for user assistance.
 
 ---
 
-## **Machine Learning Models**  
+## **Key Features**
 
-### Disease Prediction Model  
-Uses Random Forest, Naive Bayes, and Support Vector Classifier (SVC) to predict diseases based on symptoms. It:  
-- Accepts symptoms as input and converts them into one-hot encoded vectors.  
-- Predicts diseases using all three models and determines the final prediction via statistical mode.  
-- Provides fallback mechanisms for invalid inputs or prediction conflicts.  
+### **User Dashboard**
+1. **Nearby Hospital Locator**: View a list of nearby hospitals and their locations on an interactive map with route navigation.
+2. **Test and Appointment Booking**: Book, cancel, or adjust appointments and test slots.
+3. **Symptom Checker**: Predict potential diseases based on user-provided symptoms and get doctor recommendations.
+4. **Bed Availability**: Check bed availability in nearby hospitals and send email requests for needed beds.
+5. **Health Record Management**: Upload and track prescriptions, lab reports, and health data (e.g., blood pressure, sugar levels, periods tracking for females).
+6. **Reminders**: Notifications for updating health data, upcoming appointments or tests, and new reports and prescriptions uploaded by hospitals.
+7. **AuraBot**: AI-powered chatbot for assistance with appointments, test slots, bed inquiries, and navigating the platform.
 
-### Doctor-Specialization Mapping System  
-- Maps diseases to specializations using a JSON-based system.  
-- Retrieves doctor details for a given specialization to recommend suitable professionals.  
-
----
-
-## **APIs and Libraries**  
-
-1. **Google OAuth 2.0 API**: For secure user authentication.  
-2. **SMTP**: Sends emails for confirmations, reminders, and bed requests.  
-3. **APScheduler**: Schedules tasks and reminders.  
-4. **Google Geocoding API**: Converts addresses into geographical coordinates.  
-5. **Geopy**: Fetches location data and calculates distances.  
+### **Hospital Dashboard**
+1. **Data Management**: Update and manage doctor availability, test slots, bed availability, and other hospital data.
+2. **Appointment & Test Management**: Handle appointments, mark tests as done, and upload prescriptions and reports.
 
 ---
 
-## **How to Run the Project**  
+## **Technology Stack**
 
-1. Clone the repository:  
-   ```bash  
-   git clone https://github.com/your-repo-url  
-   ```  
+### **Backend**
+- **Flask**: Manages backend logic and API routing.
+- **MongoDB**: Stores user, hospital, appointment, test ,doctors and health record data.
+- **Google OAuth 2.0**: Provides secure user authentication.
+- **SMTP**: Automates email communications (e.g., confirmations, reminders, and bed requests).
+- **APScheduler**: Schedules notifications and background tasks.
 
-2. Navigate to the project directory:  
-   ```bash  
-   cd AuraMed  
-   ```  
+### **Frontend**
+- **HTML/CSS**: Responsive and user-friendly design.
+- **JavaScript**: Implements dynamic functionality.
+- **Leaflet.js**: Real-time hospital mapping and routing.
 
-3. Install dependencies:  
-   ```bash  
-   pip install -r requirements.txt  
-   ```  
+### **APIs and Geolocation**
+- **Google Geocoding API**: Converts addresses into geographic coordinates.
+- **Geopy**: Calculates distances to hospitals for better recommendations.
 
-4. Set up the environment variables:  
-   - `MONGO_URI`: MongoDB Atlas URI.  
-   - `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`: For Google OAuth.  
-   - `SMTP_SERVER` and `SMTP_CREDENTIALS`: For email services.  
-
-5. Run the Flask application:  
-   ```bash  
-   flask run  
-   ```  
-
-6. Access the application at `http://localhost:5000`.  
+### **Machine Learning**
+- **Scikit-learn**: Implements disease prediction using three models:
+  - Random Forest
+  - Naive Bayes
+  - Support Vector Classifier (SVC)
 
 ---
 
-## **Future Enhancements**  
-- Mobile app integration for seamless accessibility.  
-- Enhanced AI capabilities for personalized health recommendations.  
-- Real-time bed and doctor availability tracking using IoT.  
+## **Machine Learning Models**
+
+### **Disease Prediction**
+- **Description**: Predicts diseases based on symptoms using machine learning.
+  - **Models**: Random Forest, Naive Bayes, and Support Vector Classifier (SVC).
+  - **Process**: Combines model outputs using statistical mode for enhanced accuracy.
+
+### **Doctor-Specialization Mapping**
+- **Description**: Maps predicted diseases to relevant medical specializations and fetches doctor details for appointment booking.
+  - **Data Source**: Doctor details are stored in JSON files, which are processed using Pandas.
 
 ---
 
-## **Contributing**  
-Contributions are welcome! Feel free to submit issues or pull requests to enhance AuraMed.  
+## **APIs Used**
+1. **Google OAuth 2.0 API**: Secure user authentication.
+2. **SMTP**: Sends automated emails for booking confirmations, reminders, and notifications.
+3. **APScheduler**: Sends reminders for appointments, tests, and health data updates.
+4. **Google Geocoding API**: Converts addresses to coordinates for mapping.
+5. **Geopy**: Calculates distances between user and hospital locations.
+
+---
+
+## **Maps Integration**
+- **Platform**: OpenStreetMap
+- **Routing**: Leaflet Routing Machine for navigation.
+- **Backend**: Node.js and Express.js.
+- **Frontend**: HTML and CSS.
+- **Data Source**: MongoDB stores hospital details and locations.
+
+**GitHub Repository for Maps Integration**: [Insert Link Here]
+
+---
+
+## **Setup Instructions**
+
+1. **Clone the Repository**:  
+   ```bash
+   git clone <repository_url>
+   ```
+2. **Navigate to the Project Directory**:  
+   ```bash
+   cd healthcare
+   ```
+3. **Install Requirements**:  
+   ```bash
+   pip install -r requirements.txt
+   ```
+4. **Run the Application**:  
+   ```bash
+   python app.py
+   ```
+
+---
+
+## **Testing**
+- The backend routes and endpoints were rigorously tested using Postman, with a collection file (`AuraMed.postman_collection.json`) included for reference.
+
+---
+
+## **Resources**
+- **Article**: [https://medium.com/@dwaipayanmath/all-about-auramed-our-healthcare-management-website-b402e9ec2bc3](#)
+- **Demo Video**: [YouTube Video](#)
+- **Postman Collection**: [Download Link](#)
 
 ---
 
