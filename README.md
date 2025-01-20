@@ -115,7 +115,7 @@ AuraMed is designed to simplify hospital visits and enhance healthcare services.
 ## **Resources**
 - **Article**: [https://medium.com/@dwaipayanmath/all-about-auramed-our-healthcare-management-website-b402e9ec2bc3]
 - **Demo Video**: [YouTube Video]
-- **Postman Collection**: [Download Link]
+- **Postman Collection**: [https://auramed-351316.postman.co/workspace/New-Team-Workspace~10702ae5-fd3b-493b-b1c1-ec1e4e6c43eb/request/40647141-d2860a14-13e9-4566-84d0-20b8fcd70b28?action=share&creator=40647141&ctx=documentation]
 
 ---
 
