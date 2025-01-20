@@ -112,6 +112,11 @@ AuraMed is designed to simplify hospital visits and enhance healthcare services.
 
 ---
 
+## **Database**
+The platform uses MongoDB for storing test data during development. Once the website is launched, hospitals will register themselves and provide all the details dynamically.
+
+---
+
 ## **Resources**
 - **Article**: [https://medium.com/@dwaipayanmath/all-about-auramed-our-healthcare-management-website-b402e9ec2bc3]
 - **Demo Video**: [YouTube Video]
