@@ -117,6 +117,24 @@ The platform uses MongoDB for storing test data during development. Once the web
 
 ---
 
+
+### Future Goals
+
+1. **Advanced API Integration**  
+   - Integrate FHIR (Fast Healthcare Interoperability Resources) API to enhance interoperability with electronic health records (EHR).  
+   - Add support for teleconsultation APIs to enable virtual doctor appointments.
+
+2. **Data Security and Compliance**  
+   - Implement industry-standard encryption techniques to safeguard user data.  
+   - Ensure compliance with healthcare data regulations like HIPAA and GDPR to protect user privacy.
+
+3. **Mobile Application Development**  
+   - Build a dedicated mobile app for iOS and Android platforms to extend accessibility and convenience.  
+   - Leverage push notifications for reminders, updates, and alerts to enhance user engagement.
+
+---
+
+
 ## **Resources**
 - **Article**: [https://medium.com/@dwaipayanmath/all-about-auramed-our-healthcare-management-website-b402e9ec2bc3]
 - **Demo Video**: [YouTube Video]
