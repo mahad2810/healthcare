@@ -41,7 +41,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n  \"disease\": \"cancer\"\r\n}\r\n",
+					"raw": "{\r\n  \"disease\": \"Heart Attack\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -58,19 +58,19 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:5000/doctors?hospital=Apollo",
+					"raw": "http://localhost:5000/doclist?hospital=Apollo%20Hospital",
 					"protocol": "http",
 					"host": [
 						"localhost"
 					],
 					"port": "5000",
 					"path": [
-						"doctors"
+						"doclist"
 					],
 					"query": [
 						{
 							"key": "hospital",
-							"value": "Apollo"
+							"value": "Apollo%20Hospital"
 						}
 					]
 				}
@@ -107,7 +107,7 @@
 						},
 						{
 							"key": "email",
-							"value": "mahad.iqbal.aiml27@heritageit.edu.in",
+							"value": "mahamiqbal753@gmail.com",
 							"type": "text"
 						},
 						{
@@ -156,11 +156,8 @@
 		},
 		{
 			"name": "Save Health Data",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
 			"request": {
-				"method": "GET",
+				"method": "POST",
 				"header": [
 					{
 						"key": "Content-Type",
@@ -414,8 +411,24 @@
 		{
 			"name": "UpdateBed",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"type\": \"ICU\",\r\n    \"available\": 6\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:5000/update_bed"
 			},
 			"response": []
 		},
