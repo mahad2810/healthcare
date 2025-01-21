@@ -82,7 +82,7 @@ AuraMed is designed to simplify hospital visits and enhance healthcare services.
 - **Frontend**: HTML and CSS.
 - **Data Source**: MongoDB stores hospital details and locations.
 
-GitHub Repository for Maps Integration: [GitHub Repository for Maps Integration](https://github.com/SAPtadeep27/hospital_map)
+**GitHub Repository for Maps Integration:**  [GitHub Repository for Maps Integration](https://github.com/SAPtadeep27/hospital_map)
 ---
 
 ## **Setup Instructions**
