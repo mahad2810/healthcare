@@ -18,7 +18,7 @@ AuraMed is designed to simplify hospital visits and enhance healthcare services.
 3. **Symptom Checker**: Predict potential diseases based on user-provided symptoms and get doctor recommendations.
 4. **Bed Availability**: Check bed availability in nearby hospitals and send email requests for needed beds.
 5. **Health Record Management**: Upload and track prescriptions, lab reports, and health data (e.g., blood pressure, sugar levels, periods tracking for females).
-6. **Reminders**: Notifications for updating health data, upcoming appointments or tests, and new reports and prescriptions uploaded by hospitals.(Reminder intervals are set for a short interval of time for testing purpose)
+6. **Reminders**: Notifications for updating health data, upcoming appointments or tests, and new reports and prescriptions uploaded by hospitals.(Health data Reminder intervals are set for a short interval of time for testing purpose)
 7. **AuraBot**: AI-powered chatbot for assistance with appointments, test slots, bed inquiries, and navigating the platform.
 
 ### **Hospital Dashboard**
