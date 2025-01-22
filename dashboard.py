@@ -316,7 +316,7 @@ def send_reminder_email(email):
         print(f"Error sending email to {email}: {e}")
 
 
-schedule.every(5).minutes.do(send_email_reminder)
+schedule.every(60).minutes.do(send_email_reminder)
 
 def run_scheduler():
     while True:
