@@ -122,21 +122,36 @@ Health data Reminder intervals are set for a short interval of time for testing 
 
 ---
 
-### Future Goals
+### Future Goals & Expansion  
 
 1. **Advanced API Integration**  
-   - Integrate FHIR (Fast Healthcare Interoperability Resources) API to enhance interoperability with electronic health records (EHR).  
-   - Add support for teleconsultation APIs to enable virtual doctor appointments.
+   - **FHIR Integration**: Implement the Fast Healthcare Interoperability Resources (FHIR) API to enable seamless integration with electronic health records (EHR).  
+   - **Teleconsultation Support**: Integrate teleconsultation APIs to facilitate virtual doctor appointments and improve patient accessibility.  
 
 2. **Data Security and Compliance**  
-   - Implement industry-standard encryption techniques to safeguard user data.  
-   - Ensure compliance with healthcare data regulations like HIPAA and GDPR to protect user privacy.
+   - **Robust Data Encryption**: Employ industry-standard encryption techniques to ensure the highest level of data security.  
+   - **Regulatory Compliance**: Adhere to healthcare data regulations such as HIPAA and GDPR to protect user privacy and maintain trust.  
 
 3. **Mobile Application Development**  
-   - Build a dedicated mobile app for iOS and Android platforms to extend accessibility and convenience.  
-   - Leverage push notifications for reminders, updates, and alerts to enhance user engagement.
+   - **iOS and Android Apps**: Develop dedicated mobile applications to provide users with enhanced accessibility and convenience.  
+   - **Push Notifications**: Implement reminders, updates, and alerts to boost user engagement and interaction.  
 
----
+4. **Enhanced Inventory Management**  
+   - **Dedicated Hospital Staff Dashboard**: Design a separate dashboard for hospital staff to efficiently track and update inventory levels.  
+   - **Daily Stock Monitoring and Alerts**: Automate stock level monitoring and send email alerts to hospitals for real-time accuracy and accountability.  
+   - **Pharmacy Integration**: Include an in-app hospital pharmacy where users can order prescribed medicines at competitive prices, simplifying the process for patients.  
+   - **Technology Stack**: Use Flask, MongoDB, and APScheduler for automated stock tracking and notifications.  
+   - **Scalability Features**: Introduce QR/barcode scanning to streamline inventory management and improve efficiency.  
+
+5. **Expanded Data Visualization**  
+   - **Hospital and Admin Dashboards**: Provide advanced dashboards with actionable insights for decision-making and operational efficiency.  
+
+6. **Video Consultation Integration**  
+   - **Remote Consultation Features**: Enable video consultations for better patient accessibility and enhanced healthcare delivery.  
+
+
+---  
+
 
 
 ## Resources  
