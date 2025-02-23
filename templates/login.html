@@ -512,123 +512,134 @@
     </div>
 
     <script>
-      const loginForm = document.getElementById("login-form");
-      const signupForm = document.getElementById("signup-form");
-      const toggleToSignup = document.getElementById("toggle-to-signup");
-      const toggleToLogin = document.getElementById("toggle-to-login");
+      // Email validation function
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation regex
+  return emailRegex.test(email);
+}
 
-      // Toggle between login and signup forms
-      toggleToSignup.addEventListener("click", () => {
-        loginForm.classList.add("hidden");
-        signupForm.classList.remove("hidden");
-      });
+// Toggle between login and signup forms
+toggleToSignup.addEventListener("click", () => {
+  loginForm.classList.add("hidden");
+  signupForm.classList.remove("hidden");
+});
 
-      toggleToLogin.addEventListener("click", () => {
-        signupForm.classList.add("hidden");
-        loginForm.classList.remove("hidden");
-      });
+toggleToLogin.addEventListener("click", () => {
+  signupForm.classList.add("hidden");
+  loginForm.classList.remove("hidden");
+});
 
-      document
-        .getElementById("login-form-element")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault();
-          console.log("Submitting login form...");
+// Login form submission
+document.getElementById("login-form-element").addEventListener("submit", async function (event) {
+  event.preventDefault();
+  console.log("Submitting login form...");
 
-          const formData = new FormData(event.target);
-          const response = await fetch("/login", {
-            method: "POST",
-            body: formData,
-          });
+  const email = document.getElementById("login-email").value;
 
-          console.log("Response received", response);
-          const result = await response.json();
-          console.log("Result:", result);
-          console.log("Result success:", result.success);
-          console.log("Result redirect_url:", result.redirect_url);
+  // Validate email format
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return;
+  }
 
-          if (result.success) {
-            window.location.href = result.redirect_url;
-          } else {
-            alert(result.message);
-          }
-        });
+  const formData = new FormData(event.target);
+  const response = await fetch("/login", {
+    method: "POST",
+    body: formData,
+  });
 
-      // Password validation function
-      function validatePassword(password) {
-        const errors = [];
+  console.log("Response received", response);
+  const result = await response.json();
+  console.log("Result:", result);
+  console.log("Result success:", result.success);
+  console.log("Result redirect_url:", result.redirect_url);
 
-        if (password.length < 8) {
-          errors.push("Password must be at least 8 characters long.");
-        }
-        if (!/[A-Z]/.test(password)) {
-          errors.push("Password must contain at least one uppercase letter.");
-        }
-        if (!/[a-z]/.test(password)) {
-          errors.push("Password must contain at least one lowercase letter.");
-        }
-        if (!/[0-9]/.test(password)) {
-          errors.push("Password must contain at least one number.");
-        }
-        if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
-          errors.push("Password must contain at least one special character.");
-        }
-        if (/\s/.test(password)) {
-          errors.push("Password must not contain spaces.");
-        }
+  if (result.success) {
+    window.location.href = result.redirect_url;
+  } else {
+    alert(result.message);
+  }
+});
 
-        return errors;
+// Password validation function
+function validatePassword(password) {
+  const errors = [];
+
+  if (password.length < 8) {
+    errors.push("Password must be at least 8 characters long.");
+  }
+  if (!/[A-Z]/.test(password)) {
+    errors.push("Password must contain at least one uppercase letter.");
+  }
+  if (!/[a-z]/.test(password)) {
+    errors.push("Password must contain at least one lowercase letter.");
+  }
+  if (!/[0-9]/.test(password)) {
+    errors.push("Password must contain at least one number.");
+  }
+  if (!/[!@#$%^&*(),.?\":{}|<>]/.test(password)) {
+    errors.push("Password must contain at least one special character.");
+  }
+  if (/\s/.test(password)) {
+    errors.push("Password must not contain spaces.");
+  }
+
+  return errors;
+}
+
+// Signup form submission
+document.getElementById("signup-form-element").addEventListener("submit", async function (event) {
+  event.preventDefault(); // Prevent default form submission
+
+  const email = document.getElementById("signup-email").value;
+  const password = document.getElementById("signup-password").value;
+  const confirmPassword = document.getElementById("confirm-password").value;
+
+  // Validate email format
+  if (!validateEmail(email)) {
+    alert("Please enter a valid email address.");
+    return; // Stop form submission if email is invalid
+  }
+
+  // Validate password
+  const validationErrors = validatePassword(password);
+  if (validationErrors.length > 0) {
+    alert("Password validation failed:\n" + validationErrors.join("\n"));
+    return; // Stop form submission if validation fails
+  }
+
+  if (password !== confirmPassword) {
+    alert("Passwords do not match.");
+    return; // Stop form submission if passwords don't match
+  }
+
+  // Prepare form data
+  const formData = new FormData(this);
+
+  try {
+    // Send the signup data to the server
+    const response = await fetch("/signup", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (response.ok) {
+      const result = await response.json(); // Parse JSON response
+      if (result.success) {
+        // Redirect to the URL provided by the server
+        window.location.href = result.redirect_url;
+      } else {
+        alert(result.message); // Display server-side error message
       }
+    } else {
+      alert("Failed to communicate with the server. Please try again.");
+    }
+  } catch (error) {
+    console.error("Error during signup:", error);
+    alert("An error occurred during signup. Please try again later.");
+  }
+});
 
-      // Attach validation to the signup form
-      document
-        .getElementById("signup-form-element")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault(); // Prevent default form submission
-
-          const password = document.getElementById("signup-password").value;
-          const confirmPassword =
-            document.getElementById("confirm-password").value;
-
-          const validationErrors = validatePassword(password);
-
-          if (validationErrors.length > 0) {
-            alert(
-              "Password validation failed:\n" + validationErrors.join("\n")
-            );
-            return; // Stop form submission if validation fails
-          }
-
-          if (password !== confirmPassword) {
-            alert("Passwords do not match.");
-            return; // Stop form submission if passwords don't match
-          }
-
-          // Prepare form data
-          const formData = new FormData(this);
-
-          try {
-            // Send the signup data to the server
-            const response = await fetch("/signup", {
-              method: "POST",
-              body: formData,
-            });
-
-            if (response.ok) {
-              const result = await response.json(); // Parse JSON response
-              if (result.success) {
-                // Redirect to the URL provided by the server
-                window.location.href = result.redirect_url;
-              } else {
-                alert(result.message); // Display server-side error message
-              }
-            } else {
-              alert("Failed to communicate with the server. Please try again.");
-            }
-          } catch (error) {
-            console.error("Error during signup:", error);
-            alert("An error occurred during signup. Please try again later.");
-          }
-        });
     </script>
   </body>
 </html>

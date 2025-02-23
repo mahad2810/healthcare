@@ -11,6 +11,7 @@ import schedule
 import time
 import threading
 from bson.json_util import dumps
+from pytz import timezone
 
 
 
@@ -143,21 +144,33 @@ def save_health_data():
         last_period = data.get('lastPeriod')
         if last_period:
             try:
-                datetime.strptime(last_period, "%Y-%m-%d")
+                datetime.strptime(last_period, "%Y-%m-%d")  # Adjust the format if needed
             except ValueError:
                 return jsonify({"error": "Invalid lastPeriod date format. Expected YYYY-MM-DD"}), 400
 
-        # Include 'age' in the health_data dictionary
+        # Get the current IST time in ISO 8601 format
+        ist_timezone = timezone('Asia/Kolkata')
+        current_time_ist = datetime.now(ist_timezone).isoformat()
+
         health_data = {
-    "sex": data['sex'],
-    "age": data['age'],
-    "height": data['height'],
-    "weight": data['weight'],
-    "bloodPressure": data['bloodPressure'],
-    "sugarLevel": data['sugarLevel'],
-    "lastPeriod": last_period,
-    "updatedAt": datetime.utcnow()
-}
+            "sex": data['sex'],
+            "age": data['age'],
+            "height": data['height'],
+            "weight": data['weight'],
+            "bloodPressure": data['bloodPressure'],
+            "sugarLevel": data['sugarLevel'],
+            "lastPeriod": last_period,
+            "updatedAt": current_time_ist
+        }
+
+        # Fetch the current health data
+        current_health_data = user.get("health_data")
+        if current_health_data:
+            # Append the current health data to the health_data_record array
+            dashboard_bp.mongo.db.users.update_one(
+                {"email": user_email},
+                {"$push": {"health_data_record": current_health_data}}
+            )
 
         # Update the user's health data
         result = dashboard_bp.mongo.db.users.update_one(
