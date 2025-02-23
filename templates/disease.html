@@ -263,20 +263,20 @@
       }
       .btn-upload {
         margin-top: 20px;
-    }
-    .result {
+      }
+      .result {
         margin-top: 30px;
         padding: 15px;
         border-radius: 10px;
-    }
-    .result.success {
+      }
+      .result.success {
         background-color: #d4edda;
         color: #155724;
-    }
-    .result.error {
+      }
+      .result.error {
         background-color: #f8d7da;
         color: #721c24;
-    }
+      }
     </style>
   </head>
   <body>
@@ -430,19 +430,18 @@
       </div>
     </div>
 
-
     <div class="container">
       <h1>Skin Cancer Prediction</h1>
       <p>Upload a dermoscopic image to check for signs of skin cancer.</p>
 
       <form id="uploadForm">
-          <label for="image">Choose an Image:</label>
-          <input type="file" id="image" name="image" accept="image/*" required>
-          <button type="submit" class="btn btn-upload">Upload and Predict</button>
+        <label for="image">Choose an Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required />
+        <button type="submit" class="btn btn-upload">Upload and Predict</button>
       </form>
 
-      <div id="result" class="result" style="display: none;"></div>
-  </div>
+      <div id="result" class="result" style="display: none"></div>
+    </div>
 
     <script>
       const symptomsList = [
@@ -903,74 +902,78 @@
             console.error("Error booking appointment:", err);
             alert("There was an error booking the appointment.");
           });
-}
-      
-document.getElementById("uploadForm").addEventListener("submit", async function (event) {
-  event.preventDefault(); // Prevent the default form submission
-
-  const fileInput = document.getElementById("image");
-  const resultDiv = document.getElementById("result");
-
-  console.log("Form submission triggered.");
-
-  // Ensure a file is selected
-  if (!fileInput.files.length) {
-      console.error("No file selected.");
-      alert("Please select an image file.");
-      return;
-  }
-
-  console.log("File selected:", fileInput.files[0].name);
-
-  // Prepare the form data
-  const formData = new FormData();
-  formData.append("image", fileInput.files[0]);
-
-  try {
-      // Show a loading message
-      resultDiv.style.display = "block";
-      resultDiv.textContent = "Processing...";
-      console.log("Sending POST request to /predict.");
-
-      // Send the POST request to the backend
-      const response = await fetch("/predict", {
-          method: "POST",
-          body: formData,
-      });
-
-      console.log("POST request sent. Awaiting response...");
-
-      // Handle the response
-      if (!response.ok) {
-          console.error("Error in response from backend:", response.status, response.statusText);
-          const errorData = await response.json();
-          throw new Error(errorData.error || "An error occurred during prediction.");
       }
 
-      console.log("Response received from backend.");
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", async function (event) {
+          event.preventDefault(); // Prevent the default form submission
 
-      const data = await response.json();
-      console.log("Prediction data:", data);
+          const fileInput = document.getElementById("image");
+          const resultDiv = document.getElementById("result");
 
-      // Display the results
-      resultDiv.innerHTML = `
+          console.log("Form submission triggered.");
+
+          // Ensure a file is selected
+          if (!fileInput.files.length) {
+            console.error("No file selected.");
+            alert("Please select an image file.");
+            return;
+          }
+
+          console.log("File selected:", fileInput.files[0].name);
+
+          // Prepare the form data
+          const formData = new FormData();
+          formData.append("image", fileInput.files[0]);
+
+          try {
+            // Show a loading message
+            resultDiv.style.display = "block";
+            resultDiv.textContent = "Processing...";
+            console.log("Sending POST request to /predict.");
+
+            // Send the POST request to the backend
+            const response = await fetch("/predict", {
+              method: "POST",
+              body: formData,
+            });
+
+            console.log("POST request sent. Awaiting response...");
+
+            // Handle the response
+            if (!response.ok) {
+              console.error(
+                "Error in response from backend:",
+                response.status,
+                response.statusText
+              );
+              const errorData = await response.json();
+              throw new Error(
+                errorData.error || "An error occurred during prediction."
+              );
+            }
+
+            console.log("Response received from backend.");
+
+            const data = await response.json();
+            console.log("Prediction data:", data);
+
+            // Display the results
+            resultDiv.innerHTML = `
           <h3>Prediction Results:</h3>
           <p><strong>Random Forest:</strong> ${data.Random_Forest}</p>
           <p><strong>XGBoost:</strong> ${data.XGBoost}</p>
       `;
-      console.log("Results displayed on the frontend.");
-  } catch (error) {
-      // Display error message
-      console.error("Error during prediction:", error.message);
-      resultDiv.textContent = `Error: ${error.message}`;
-  } finally {
-      console.log("Form submission process completed.");
-  }
-});
-
-    
-
-  
+            console.log("Results displayed on the frontend.");
+          } catch (error) {
+            // Display error message
+            console.error("Error during prediction:", error.message);
+            resultDiv.textContent = `Error: ${error.message}`;
+          } finally {
+            console.log("Form submission process completed.");
+          }
+        });
     </script>
   </body>
 </html>
