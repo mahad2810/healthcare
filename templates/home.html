@@ -2548,10 +2548,21 @@
 
       function showHospitalPopup(hospitalName) {
         console.log("Displaying popup for hospital:", hospitalName);
-        document.getElementById("hospital-name-display").innerText =
-          hospitalName;
+        // Set the hospital name in the popup
+        document.getElementById("hospital-name").innerText = hospitalName;
+        // Display the popup
         document.getElementById("hospital-popup").style.display = "block";
       }
+      
+      function redirectToDocPage() {
+        // Retrieve the text content of the hospital name element
+        const hospitalName = document.getElementById("hospital-name").innerText; 
+        console.log("Redirecting to doctor page for hospital:", hospitalName);
+      
+        // Redirect to the /doclist route with the hospital name as a query parameter
+        window.location.href = `/doclist?hospital=${encodeURIComponent(hospitalName)}`;
+      }
+      
 
       function showTestSlotForm() {
         console.log("Switching to test slot form...");
@@ -4352,16 +4363,7 @@
             });
         });
 
-      function redirectToDocPage() {
-        const hospitalName = document.getElementById("hospital-name").innerText;
-        console.log("Redirecting to doctor page for hospital:", hospitalName);
-
-        // Redirect to the /doctors route with the hospital name as a query parameter
-        window.location.href = `/doclist?hospital=${encodeURIComponent(
-          hospitalName
-        )}`;
-      }
-
+      
       let hospitals = []; // To store the list of hospitals
 
       document.addEventListener("DOMContentLoaded", () => {
@@ -4506,13 +4508,6 @@
         redirectTohosPage(); // Directly redirect to the doctor page
       }
 
-      function redirectTohosPage() {
-        const hospitalName = document.getElementById("hospital-name").innerText;
-        console.log("Redirecting to doctor page for hospital:", hospitalName);
-
-        // Redirect to the /doctors route with the hospital name as a query parameter
-        window.location.href = `/hosplist`;
-      }
       document.getElementById("logout-icon").addEventListener("click", (e) => {
         e.preventDefault(); // Prevent the default action
         fetch("/logout", { method: "POST" })

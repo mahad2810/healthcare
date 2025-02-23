@@ -17,7 +17,7 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 from pymongo import MongoClient
 from apscheduler.schedulers.background import BackgroundScheduler
-
+import atexit
 
 
 
@@ -105,8 +105,6 @@ def logout():
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 
-# Register the hospital blueprint and pass mongo
-app.register_blueprint(hospital_bp)
 
 app.register_blueprint(home_bp)
 
@@ -198,10 +196,41 @@ def send_reminders():
 
 # Scheduler configuration
 scheduler = BackgroundScheduler()
-scheduler.add_job(func=send_reminders, trigger="interval", minutes=5)
+scheduler.add_job(func=send_reminders, trigger="interval", minutes=180)
+# Import your functions
+from inventory import send_low_inventory_reminders
+
+
+def add_scheduler_jobs(app):
+    # Pass Flask app instance to the job
+    scheduler.add_job(
+        func=send_low_inventory_reminders,  # Pass the function directly
+        trigger="interval",
+        minutes=180,
+        args=[app],  # Pass the app instance as an argument
+    )
+add_scheduler_jobs(app)
+
 scheduler.start()
 
 
 
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())
+
+# Register the hospital blueprint and pass mongo
+app.register_blueprint(hospital_bp)
+
+
+@app.route('/staff')
+def render_staff():
+    return render_template('staff.html')
+
+
+from inventory import inventory_bp 
+app.register_blueprint(inventory_bp, url_prefix='/inventory')  # Add URL prefix
+
+
 if __name__ == "__main__":
+    os.makedirs("uploads", exist_ok=True)
     app.run(debug=True,host="localhost")

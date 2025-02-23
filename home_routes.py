@@ -11,6 +11,9 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
 from bson import ObjectId
+from datetime import datetime
+import pytz  # Import for timezone handling
+
 
 # Blueprint setup
 home_bp = Blueprint("home", __name__)
@@ -126,6 +129,8 @@ def get_test_availability():
     else:
         return jsonify({"error": "Hospital not found"}), 404
 
+
+
 @home_bp.route('/book-test', methods=['POST'])
 def book_test():
     if 'prescription_pdf' not in request.files:
@@ -175,6 +180,10 @@ def book_test():
             test_slot_code = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
 
             tests_collection = current_app.mongo.db.tests
+            # Set timezone to IST
+            ist_timezone = pytz.timezone('Asia/Kolkata')
+            booking_timestamp = datetime.now(ist_timezone).strftime('%Y-%m-%d %H:%M:%S')  # IST Timestamp
+
             test_entry = {
                 'patient_name': patient_name,
                 'patient_phone': patient_phone,
@@ -188,7 +197,8 @@ def book_test():
                 'test_slot_code': test_slot_code,
                 'prescription_path': file_path,
                 'report': None,
-                'status': 'ongoing'
+                'status': 'ongoing',
+                'booking_timestamp': booking_timestamp  # Updated to IST
             }
             tests_collection.insert_one(test_entry)
 
