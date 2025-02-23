@@ -48,7 +48,12 @@ AuraMed is a comprehensive healthcare management platform that optimizes hospita
 - **React.js, WebRTC, Socket.io**: Peer-to-peer video communication
 - **Node.js & Express.js**: Backend signaling server
 
-
+### Map Technology Stack
+- **Leaflet.js**: Interactive map rendering
+- **OpenStreetMap**: Open-source mapping data
+- **Google Geocoding API**: Address-to-coordinate conversion
+- **Geopy**: Distance calculations
+- **Flask & Python**: Backend for processing map data
 
 ## Setup Instructions
 
@@ -79,8 +84,8 @@ AuraMed is a comprehensive healthcare management platform that optimizes hospita
 ## Future Enhancements
 - **Separation of User and Hospital Apps** for better stability
 - **UI Improvements**
-- **Enhanced Call Handling**
-- **Expansion of ML Capabilities**
+- **Advanced Video Calling**: We are able to make the server and create the call, but there is a slight issue in managing incoming calls and the frontend. We need to improve it fully.
+- **Skin Disease Prediction**: The model is completely ready; currently working on deployment and integration.
 
 ## Additional Resources
 - **[Project Article](https://medium.com/@dwaipayanmath/auramed-comprehensive-healthcare-management-platform-2941d904888c)**: Detailed description of AuraMed.
