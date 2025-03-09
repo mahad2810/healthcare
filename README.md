@@ -59,11 +59,11 @@ AuraMed is a comprehensive healthcare management platform that optimizes hospita
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/AuraMed.git
+   git clone https://github.com/mahad2810/healthcare.git
    ```
 2. Navigate to the project folder:
    ```bash
-   cd AuraMed
+   cd healthcare
    ```
 3. Install dependencies:
    ```bash
