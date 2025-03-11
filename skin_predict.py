@@ -6,38 +6,62 @@ from google.cloud import aiplatform
 from flask import current_app
 
 
-def predict_skin_cancer(image_path, models_dir="models", img_size=(128, 128)):
+def predict_skin_cancer(image_path, img_size=(128, 128)):
     """
-    Predict skin cancer classification using trained models.
+    Predict skin cancer classification using Vertex AI deployed models.
+
+    Args:
+    - image_path (str): Path to the input image.
+    - img_size (tuple): Dimensions to resize the input image.
+
+    Returns:
+    - results (dict): Predictions from each model.
     """
     # Load and preprocess the input image
     img = cv2.imread(image_path)
     if img is None:
         raise ValueError("Image not found or unable to read.")
-    print(f"Original image shape: {img.shape}")  # Debugging log
-
-    if not isinstance(img_size, tuple) or len(img_size) != 2:
-        raise ValueError("Invalid img_size argument. Expected a tuple with (width, height).")
-
     img = cv2.resize(img, img_size) / 255.0  # Normalize
-    print(f"Resized image shape: {img.shape}")  # Debugging log
+    img_flat = img.flatten().tolist()  # Convert to list for JSON serialization
 
-    img_flat = img.flatten().reshape(1, -1)  # Flatten for classical models
-    print(f"Flattened image shape: {img_flat.shape}")  # Debugging log
+    # Vertex AI endpoint details
+    endpoints = {
+        "Random_Forest": {
+            "endpoint_id": "1784345743671164928",
+            "region": "us-central1"
+        },
+        "XGBoost": {
+            "endpoint_id": "2689569268772634624",
+            "region": "us-central1"
+        },
+        "SVM": {
+            "endpoint_id": "2007836875179425792",
+            "region": "us-central1"
+        }
+    }
 
     results = {}
-    for model_file in os.listdir(models_dir):
-        model_path = os.path.join(models_dir, model_file)
-        if model_file.endswith('.joblib'):
-            # Load the model
-            model = joblib.load(model_path)
-            # Get probabilities
-            prob = model.predict_proba(img_flat)[0] * 100
-            # Format the result
-            results[model_file.split('_')[0]] = f"Cancer: {prob[0]:.2f}%, Non-Cancer: {prob[1]:.2f}%"
+
+    for model_name, details in endpoints.items():
+        try:
+            # Initialize Vertex AI client
+            aiplatform.init(project=current_app.config["GCP_PROJECT"], location=details["region"])
+
+            # Get endpoint
+            endpoint = aiplatform.Endpoint(endpoint_name=details["endpoint_id"])
+
+            # Make prediction
+            prediction = endpoint.predict(instances=[img_flat])
+
+            if prediction and prediction.predictions:
+                prob = prediction.predictions[0]  # Assuming the response contains probabilities
+                results[model_name] = f"Cancer: {prob[0]:.2f}%, Non-Cancer: {prob[1]:.2f}%"
+            else:
+                results[model_name] = "Prediction failed or empty response."
+        except Exception as e:
+            results[model_name] = f"Error: {str(e)}"
 
     return results
-
 
 def ensemble_prediction(results):
     """
