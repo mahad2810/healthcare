@@ -518,15 +518,22 @@ function validateEmail(email) {
   return emailRegex.test(email);
 }
 
-// Toggle between login and signup forms
+// Select DOM elements
+const toggleToSignup = document.getElementById("toggle-to-signup");
+const toggleToLogin = document.getElementById("toggle-to-login");
+const loginForm = document.getElementById("login-form"); // ID of the login form container
+const signupForm = document.getElementById("signup-form"); // ID of the signup form container
+
+// Function to toggle to the signup form
 toggleToSignup.addEventListener("click", () => {
-  loginForm.classList.add("hidden");
-  signupForm.classList.remove("hidden");
+  loginForm.classList.add("hidden"); // Hide the login form
+  signupForm.classList.remove("hidden"); // Show the signup form
 });
 
+// Function to toggle back to the login form
 toggleToLogin.addEventListener("click", () => {
-  signupForm.classList.add("hidden");
-  loginForm.classList.remove("hidden");
+  signupForm.classList.add("hidden"); // Hide the signup form
+  loginForm.classList.remove("hidden"); // Show the login form
 });
 
 // Login form submission
