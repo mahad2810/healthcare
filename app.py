@@ -30,7 +30,10 @@ app.config['HOSPITAL_UPLOAD_FOLDER'] = 'static/uploads'
 mongo = PyMongo(app)
 app.mongo = mongo
 
+# Ensure 'uploads' directory exists
+UPLOAD_FOLDER = os.path.join(os.getcwd(), "uploads")
 
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Google OAuth configuration
 GOOGLE_CLIENT_ID = os.getenv("GOOGLE_OAUTH_CLIENT_ID")
