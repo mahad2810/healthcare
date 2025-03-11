@@ -91,7 +91,7 @@ class AuthHandler:
         token_url, headers, body = client.prepare_token_request(
             token_endpoint,
             authorization_response=request.url,
-            redirect_url="http://localhost:5000/login/google/callback",
+            redirect_url="https://auramed.onrender.com/login/google/callback",
             code=code,
         )
         token_response = requests.post(
