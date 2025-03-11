@@ -6,7 +6,7 @@ import os
 import cv2
 import numpy as np
 import joblib
-
+from skin_predict import predict_skin_cancer, ensemble_prediction
 
 
 # Initialize the blueprint
@@ -55,52 +55,43 @@ def get_doctors():
     except Exception as e:
         return jsonify({'error': str(e)}), 500
     
-# Directory containing trained models
+
 MODELS_DIR = "models"
 
+# Ensure the upload folder exists
 @disease_blueprint.route("/predict", methods=["POST"])
 def predict():
-    print("Prediction request received.")
-    if "image" not in request.files:
-        print("No file uploaded.")
-        return jsonify({"error": "No file uploaded"}), 400
-
-    file = request.files["image"]
-    file_path = os.path.join("uploads", file.filename)
-    file.save(file_path)
-    print(f"File saved at {file_path}.")
-
+    """
+    Handle image upload and return predictions.
+    """
     try:
-        # Load and preprocess the image
-        img_size = (256, 256)
-        img = cv2.imread(file_path)
-        if img is None:
-            raise ValueError("Invalid image file")
-        print("Image loaded successfully.")
-        img = cv2.resize(img, img_size) / 255.0  # Normalize
-        img_flat = img.flatten().reshape(1, -1)  # Flatten for ML models
-        print("Image preprocessed successfully.")
+        # Access the upload folder from the app context
+        upload_folder = current_app.config["UPLOAD_FOLDER"]
+        os.makedirs(upload_folder, exist_ok=True)  # Ensure the upload folder exists
 
-        results = {}
+        if "image" not in request.files:
+            return jsonify({"error": "No file part in the request."}), 400
 
-        # Predict using Random Forest
-        rf_model = joblib.load(f"{MODELS_DIR}/Random Forest_model.pkl")
-        print("Random Forest model loaded.")
-        rf_probs = rf_model.predict_proba(img_flat)[0] * 100
-        results["Random_Forest"] = f"Cancer: {rf_probs[0]:.2f}%, Non-Cancer: {rf_probs[1]:.2f}%"
-        print(f"Random Forest Prediction: {results['Random_Forest']}")
+        file = request.files["image"]
 
-        # Predict using XGBoost
-        xgb_model = joblib.load(f"{MODELS_DIR}/XGBoost_model.pkl")
-        print("XGBoost model loaded.")
-        xgb_probs = xgb_model.predict_proba(img_flat)[0] * 100
-        results["XGBoost"] = f"Cancer: {xgb_probs[0]:.2f}%, Non-Cancer: {xgb_probs[1]:.2f}%"
-        print(f"XGBoost Prediction: {results['XGBoost']}")
+        if file.filename == "":
+            return jsonify({"error": "No selected file."}), 400
 
-        return jsonify(results)
+        if file:
+            # Save the uploaded file
+            filename = secure_filename(file.filename)
+            file_path = os.path.join(upload_folder, filename)
+            file.save(file_path)
+
+            # Run predictions
+            results = predict_skin_cancer(file_path, "models")
+            ensemble_result = ensemble_prediction(results)
+
+            # Return results
+            return jsonify({
+                "Random_Forest": results.get("Random_Forest", "N/A"),
+                "XGBoost": results.get("XGBoost", "N/A"),
+                "Ensemble": ensemble_result
+            })
     except Exception as e:
-        print(f"Error during prediction: {str(e)}")
         return jsonify({"error": str(e)}), 500
-    finally:
-        os.remove(file_path)
-        print(f"File {file_path} removed.")

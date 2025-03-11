@@ -905,75 +905,75 @@
       }
 
       document
-        .getElementById("uploadForm")
-        .addEventListener("submit", async function (event) {
-          event.preventDefault(); // Prevent the default form submission
+  .getElementById("uploadForm")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent the default form submission
 
-          const fileInput = document.getElementById("image");
-          const resultDiv = document.getElementById("result");
+    const fileInput = document.getElementById("image");
+    const resultDiv = document.getElementById("result");
 
-          console.log("Form submission triggered.");
+    console.log("Form submission triggered.");
 
-          // Ensure a file is selected
-          if (!fileInput.files.length) {
-            console.error("No file selected.");
-            alert("Please select an image file.");
-            return;
-          }
+    // Ensure a file is selected
+    if (!fileInput.files.length) {
+      console.error("No file selected.");
+      alert("Please select an image file.");
+      return;
+    }
 
-          console.log("File selected:", fileInput.files[0].name);
+    console.log("File selected:", fileInput.files[0].name);
 
-          // Prepare the form data
-          const formData = new FormData();
-          formData.append("image", fileInput.files[0]);
+    // Prepare the form data
+    const formData = new FormData();
+    formData.append("image", fileInput.files[0]);
 
-          try {
-            // Show a loading message
-            resultDiv.style.display = "block";
-            resultDiv.textContent = "Processing...";
-            console.log("Sending POST request to /predict.");
+    try {
+      // Show a loading message
+      resultDiv.style.display = "block";
+      resultDiv.textContent = "Processing...";
+      console.log("Sending POST request to /predict.");
 
-            // Send the POST request to the backend
-            const response = await fetch("/predict", {
-              method: "POST",
-              body: formData,
-            });
+      // Send the POST request to the backend
+      const response = await fetch("/predict", {
+        method: "POST",
+        body: formData,
+      });
 
-            console.log("POST request sent. Awaiting response...");
+      console.log("POST request sent. Awaiting response...");
 
-            // Handle the response
-            if (!response.ok) {
-              console.error(
-                "Error in response from backend:",
-                response.status,
-                response.statusText
-              );
-              const errorData = await response.json();
-              throw new Error(
-                errorData.error || "An error occurred during prediction."
-              );
-            }
+      // Handle the response
+      if (!response.ok) {
+        console.error(
+          "Error in response from backend:",
+          response.status,
+          response.statusText
+        );
+        const errorData = await response.json();
+        throw new Error(
+          errorData.error || "An error occurred during prediction."
+        );
+      }
 
-            console.log("Response received from backend.");
+      console.log("Response received from backend.");
 
-            const data = await response.json();
-            console.log("Prediction data:", data);
+      const data = await response.json();
+      console.log("Prediction data:", data);
 
-            // Display the results
-            resultDiv.innerHTML = `
-          <h3>Prediction Results:</h3>
-          <p><strong>Random Forest:</strong> ${data.Random_Forest}</p>
-          <p><strong>XGBoost:</strong> ${data.XGBoost}</p>
+      // Display only the final prediction
+      resultDiv.innerHTML = `
+        <h3>Final Prediction:</h3>
+        <p><strong>${data.Ensemble}</strong></p>
       `;
-            console.log("Results displayed on the frontend.");
-          } catch (error) {
-            // Display error message
-            console.error("Error during prediction:", error.message);
-            resultDiv.textContent = `Error: ${error.message}`;
-          } finally {
-            console.log("Form submission process completed.");
-          }
-        });
+      console.log("Final prediction displayed on the frontend.");
+    } catch (error) {
+      // Display error message
+      console.error("Error during prediction:", error.message);
+      resultDiv.textContent = `Error: ${error.message}`;
+    } finally {
+      console.log("Form submission process completed.");
+    }
+  });
+
     </script>
   </body>
 </html>
