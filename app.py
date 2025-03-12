@@ -209,11 +209,25 @@ scheduler.start()
 
 
 import firebase_admin
-from firebase_admin import credentials, messaging
+from firebase_admin import credentials, messaging,initialize_app
+from base64 import b64decode
+import json
+from dotenv import load_dotenv
+# Load environment variables from .env file
+load_dotenv()
 
-# Initialize Firebase Admin SDK
-cred = credentials.Certificate("auramed-994f3-firebase-adminsdk-fbsvc-7ceb695fae.json")
-firebase_admin.initialize_app(cred)
+
+# Decode the Base64 string from the environment variable
+firebase_credentials_base64 = os.getenv("FIREBASE_CREDENTIALS_BASE64")
+if not firebase_credentials_base64:
+    raise ValueError("FIREBASE_CREDENTIALS_BASE64 environment variable is not set.")
+
+# Decode and load the credentials
+firebase_credentials = json.loads(b64decode(firebase_credentials_base64))
+
+# Pass the decoded credentials to firebase-admin
+cred = credentials.Certificate(firebase_credentials)
+initialize_app(cred)
 
 from firebase_admin import messaging
 
