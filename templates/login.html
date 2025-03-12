@@ -400,7 +400,7 @@
             <label for="email">Email</label>
             <input
               type="email"
-              id="email"
+              id="login-email"
               name="email"
               placeholder="Enter your email"
               required
@@ -512,11 +512,7 @@
     </div>
 
     <script>
-      // Email validation function
-function validateEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Basic email validation regex
-  return emailRegex.test(email);
-}
+      
 
 // Select DOM elements
 const toggleToSignup = document.getElementById("toggle-to-signup");
@@ -536,37 +532,50 @@ toggleToLogin.addEventListener("click", () => {
   loginForm.classList.remove("hidden"); // Show the login form
 });
 
-// Login form submission
-document.getElementById("login-form-element").addEventListener("submit", async function (event) {
-  event.preventDefault();
-  console.log("Submitting login form...");
+document
+  .getElementById("login-form-element")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    console.log("Submitting login form...");
 
-  const email = document.getElementById("login-email").value;
+    const email = document.getElementById("login-email").value;
 
-  // Validate email format
-  if (!validateEmail(email)) {
-    alert("Please enter a valid email address.");
-    return;
-  }
+    // Validate email format
+    if (!validateEmail(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-  const formData = new FormData(event.target);
-  const response = await fetch("/login", {
-    method: "POST",
-    body: formData,
+    const formData = new FormData(event.target);
+    try {
+      const response = await fetch("/login", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      const result = await response.json();
+      console.log("Result:", result);
+
+      if (result.success) {
+        window.location.href = result.redirect_url;
+      } else {
+        alert(result.message);
+      }
+    } catch (error) {
+      console.error("Error during form submission:", error);
+      alert("An error occurred. Please try again.");
+    }
   });
 
-  console.log("Response received", response);
-  const result = await response.json();
-  console.log("Result:", result);
-  console.log("Result success:", result.success);
-  console.log("Result redirect_url:", result.redirect_url);
+function validateEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
 
-  if (result.success) {
-    window.location.href = result.redirect_url;
-  } else {
-    alert(result.message);
-  }
-});
 
 // Password validation function
 function validatePassword(password) {

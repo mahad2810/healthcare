@@ -27,6 +27,7 @@ CORS(app)
 app.secret_key = "your_secret_key"  # Replace with a secure secret key
 app.config["MONGO_URI"] = "mongodb+srv://mahadiqbalaiml27:9Gx_qVZ-tpEaHUu@healthcaresystem.ilezc.mongodb.net/healthcaresystem?retryWrites=true&w=majority&appName=Healthcaresystem"  # Replace with your MongoDB URI
 app.config['HOSPITAL_UPLOAD_FOLDER'] = 'static/uploads'
+
 mongo = PyMongo(app)
 app.mongo = mongo
 

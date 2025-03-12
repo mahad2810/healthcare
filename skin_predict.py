@@ -2,7 +2,6 @@ import os
 import joblib
 import numpy as np
 import cv2
-from google.cloud import aiplatform
 from flask import current_app
 
 
