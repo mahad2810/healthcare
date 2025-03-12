@@ -208,6 +208,53 @@ scheduler.start()
 
 
 
+import firebase_admin
+from firebase_admin import credentials, messaging
+
+# Initialize Firebase Admin SDK
+cred = credentials.Certificate("auramed-994f3-firebase-adminsdk-fbsvc-7ceb695fae.json")
+firebase_admin.initialize_app(cred)
+
+from firebase_admin import messaging
+
+def send_notification(registration_token, title, body):
+    # Create a message to send
+    message = messaging.Message(
+        notification=messaging.Notification(
+            title=title,
+            body=body,
+        ),
+        token=registration_token,
+    )
+
+    try:
+        # Send the message
+        response = messaging.send(message)
+        print("Successfully sent message:", response)
+        return response
+    except Exception as e:
+        print("Error sending message:", e)
+        return None
+
+@app.route('/send-notification', methods=['POST'])
+def send_notification_endpoint():
+    data = request.json
+    registration_token = data.get('token')  # Device token
+    title = data.get('title')
+    body = data.get('body')
+
+    response = send_notification(registration_token, title, body)
+    if response:
+        return jsonify({"success": True, "response": response}), 200
+    else:
+        return jsonify({"success": False, "error": "Failed to send notification"}), 500
+
+@app.route('/firebase-messaging-sw.js')
+def render_firebase():
+    return app.send_static_file('firebase-messaging-sw.js')
+
+
+
 if __name__ == "__main__":
     os.makedirs("uploads", exist_ok=True)
     app.run(debug=True,)
