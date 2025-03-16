@@ -57,7 +57,7 @@ AuraMed is a comprehensive healthcare management platform that optimizes hospita
 - **Geopy**: Distance calculations
 - **Flask & Python**: Backend for processing map data
 
-## Setup Instructions
+## Setup Instructions(Dont Use Google Login as https isnt provided)
 
 1. Clone the repository:
    ```bash
