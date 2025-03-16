@@ -4373,12 +4373,7 @@
       document.addEventListener("DOMContentLoaded", () => {
         loadHospitalList();
       });
-
-      document.querySelector(".action-button").addEventListener("click", () => {
-        console.log("Button clicked: BedVacancy");
-        openModal();
-      });
-
+      
       function openBedVacancyModal() {
         const modal = document.getElementById("bedVacancyModal");
         if (modal) {
@@ -4512,6 +4507,11 @@
         redirectTohosPage(); // Directly redirect to the doctor page
       }
 
+
+      function redirectTohosPage() {
+        window.location.href = '/hosplist';
+    }
+    
       document.getElementById("logout-icon").addEventListener("click", (e) => {
         e.preventDefault(); // Prevent the default action
         fetch("/logout", { method: "POST" })
